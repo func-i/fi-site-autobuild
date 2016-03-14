@@ -5,7 +5,7 @@ end
 
 post '/github_webhooks' do
   p @payload
-  GithubConnect::Webhook.new(env['HTTP_X_GITHUB_EVENT'], @request_payload).handle
+  Handler::handle(@payload)
   status 204
   body ''
 end
