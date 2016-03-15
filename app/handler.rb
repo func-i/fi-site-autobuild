@@ -3,7 +3,7 @@ class Handler
     @repo_owner  = data.repository.owner.name
     @repo_name   = data.repository.name;
     @repo_url    = "https://github.com/func-i/#{@repo_name}.git"
-    @repo_branch = data.ref.replace("refs/heads/", "");
+    @repo_branch = data.ref.sub("refs/heads/", "");
   end
 
   def handle
