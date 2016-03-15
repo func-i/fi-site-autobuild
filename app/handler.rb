@@ -19,8 +19,8 @@ class Handler
   private
 
   def download
-    @code_dir  = "#{@temp_dir}/code"
     Dir.chdir(@temp_dir)
+    @code_dir  = "#{@temp_dir}/code"
     %x{
       git clone #{@repo_url} #{@code_dir} &&
       cd #{@code_dir} &&
@@ -31,11 +31,12 @@ class Handler
   end
 
   def build
-    @site_dir = "#{@temp_dir}/site"
     Dir.chdir(@code_dir)
+    @site_dir = "#{@temp_dir}/site"
     %x{
       bundle install &&
-      bundle exec jekyll build -s #{@code_dir} -d #{@site_dir}
+      bundle exec jekyll build -s #{@code_dir} -d #{@site_dir} &&
+      cd #{@site_dir}
     }
   end
 
