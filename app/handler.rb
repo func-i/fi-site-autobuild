@@ -38,11 +38,9 @@ class Handler
       bundle exec jekyll build -s #{@code_dir} -d #{@site_dir} &&
       cd #{@site_dir}
     }
-    p Dir.entries(@site_dir)
   end
 
   def publish
-    p Dir.entries(APP_ROOT.to_path)
     %x{
       cd #{APP_ROOT.to_path} &&
       bundle exec s3_website push --site=#{@site_dir}
