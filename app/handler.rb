@@ -21,6 +21,8 @@ class Handler
   private
 
   def build
+    puts "building branch #{@repo_branch} of #{@repo_url}"
+    puts Dir.pwd
     %x{
       echo "building branch #{@repo_branch} of #{@repo_url}" &&
       pwd
