@@ -22,9 +22,9 @@ class Handler
     @code_dir  = "#{@temp_dir}/code"
     Dir.chdir(@temp_dir)
     %x{
-      git clone #{@repo_url} #{code_dir} &&
+      git clone #{@repo_url} #{@code_dir} &&
       git checkout #{@repo_branch} &&
-      git pull origin #{repo_branch}
+      git pull origin #{@repo_branch}
     }
   end
 
