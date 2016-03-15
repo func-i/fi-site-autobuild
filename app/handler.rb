@@ -36,6 +36,7 @@ class Handler
       bundle exec jekyll build -s #{@code_dir} -d #{@site_dir} &&
       cd #{@site_dir}
     }
+    p Dir.entries(@site_dir)
   end
 
   def publish
