@@ -10,10 +10,6 @@ class Handler
     # end early if not FI account
     return unless @repo_owner === "func-i"
 
-    temp_dir  = "./temp"
-    @code_dir  = "#{temp_dir}/code"
-    @site_dir  = "#{temp_dir}/site"
-
     build
     publish
   end
@@ -21,18 +17,22 @@ class Handler
   private
 
   def build
-    puts "building branch #{@repo_branch} of #{@repo_url}"
+    temp_dir  = "/temp"
+    code_dir  = "#{temp_dir}/code"
+    @site_dir = "#{temp_dir}/site"
+
+    Dir.mkdir(temp_dir)
+    Dir.chdir(temp_dir)
     puts Dir.pwd
+
     %x{
-      echo "building branch #{@repo_branch} of #{@repo_url}" &&
-      pwd
+      git clone #{@repo_url} #{code_dir}
+      &&
+      ls
     }
   end
 
   def publish
-    %x{
-      echo "publishing" &&
-      pwd
-    }
+    puts "Publishing!"
   end
 end
