@@ -5,7 +5,7 @@ end
 
 post '/github_webhooks' do
   p @payload
-  Handler::handle(@payload)
+  Handler.new(@payload).handle
   status 204
   body ''
 end
