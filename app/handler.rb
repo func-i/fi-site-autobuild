@@ -33,6 +33,7 @@ class Handler
   end
 
   def build
+    puts APP_ROOT.to_path
     %x{
       bundle exec jekyll build -s #{@code_dir} -d #{@site_dir} &&
       cd #{APP_ROOT.to_path}
