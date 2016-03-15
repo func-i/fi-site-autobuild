@@ -23,6 +23,7 @@ class Handler
     Dir.chdir(@temp_dir)
     %x{
       git clone #{@repo_url} #{@code_dir} &&
+      cd #{@code_dir} &&
       git checkout #{@repo_branch} &&
       git pull origin #{@repo_branch}
     }
@@ -31,7 +32,7 @@ class Handler
   def build
     @site_dir = "#{@temp_dir}/site"
 
-    put "Building"
+    puts "Building"
     puts @site_dir
 
     %x{
