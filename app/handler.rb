@@ -33,14 +33,14 @@ class Handler
   end
 
   def build
-    Dir.chdir(@code_dir)
     %x{
       bundle exec jekyll build -s #{@code_dir} -d #{@site_dir} &&
-      cd #{@site_dir}
+      cd #{APP_ROOT}
     }
   end
 
   def publish
+
     %x{
       bundle exec s3_website push --site=#{@site_dir}
     }
