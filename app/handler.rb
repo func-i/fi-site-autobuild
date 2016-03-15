@@ -20,7 +20,7 @@ class Handler
 
   def download
     @code_dir  = "#{@temp_dir}/code"
-    Dir.chdir(temp_dir)
+    Dir.chdir(@temp_dir)
     %x{
       git clone #{@repo_url} #{code_dir} &&
       git checkout #{@repo_branch} &&
@@ -29,7 +29,7 @@ class Handler
   end
 
   def build
-    @site_dir = "#{temp_dir}/site"
+    @site_dir = "#{@temp_dir}/site"
 
     put "Building"
     puts @site_dir
