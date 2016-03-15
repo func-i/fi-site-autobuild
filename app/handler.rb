@@ -22,7 +22,7 @@ class Handler
 
   def build
     %x{
-      echo "building branch #{repo_branch} of #{repo_url}" &&
+      echo "building branch #{@repo_branch} of #{@repo_url}" &&
       pwd
     }
   end
