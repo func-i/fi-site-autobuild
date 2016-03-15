@@ -17,11 +17,10 @@ class Handler
   private
 
   def build
-    temp_dir  = "/temp"
+    temp_dir  = "/tmp"
     code_dir  = "#{temp_dir}/code"
     @site_dir = "#{temp_dir}/site"
 
-    Dir.mkdir(temp_dir)
     Dir.chdir(temp_dir)
     puts Dir.pwd
 
