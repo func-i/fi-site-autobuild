@@ -23,7 +23,9 @@ class Handler
 
   def download
     %x{
-      git clone #{@repo_url} #{@code_dir} &&
+      if [ ! -d #{@code_dir} ]; then
+        git clone #{@repo_url} #{@code_dir}
+      fi &&
       cd #{@code_dir} &&
       git checkout #{@repo_branch} &&
       git pull origin #{@repo_branch} &&
