@@ -33,7 +33,7 @@ class Handler
     @site_dir = "#{@temp_dir}/site"
     %x{
       bundle install &&
-      jekyll build -s #{code_dir} -d #{@site_dir}
+      jekyll build -s #{@code_dir} -d #{@site_dir}
     }
   end
 
