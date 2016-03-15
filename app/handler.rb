@@ -32,7 +32,7 @@ class Handler
 
   def build
     @site_dir = "#{@temp_dir}/site"
-    Dir.chdir(@site_dir)
+    Dir.chdir(@code_dir)
     %x{
       bundle install &&
       bundle exec jekyll build -s #{@code_dir} -d #{@site_dir}
