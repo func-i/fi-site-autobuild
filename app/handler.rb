@@ -31,16 +31,15 @@ class Handler
 
   def build
     @site_dir = "#{@temp_dir}/site"
-
-    puts "Building"
-    puts @site_dir
-
     %x{
-
+      bundle install &&
+      jekyll build -s #{code_dir} -d #{@site_dir}
     }
   end
 
   def publish
     puts "Publishing!"
+    Dir.chdir(@site_dir)
+    p Dir.entries(@site_dir)
   end
 end
