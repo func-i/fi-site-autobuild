@@ -10,7 +10,10 @@ class Handler
     # end early if not FI account
     return unless @repo_owner === "func-i"
 
-    @temp_dir  = "/tmp"
+    @temp_dir = "/tmp"
+    @code_dir = "#{@temp_dir}/code"
+    @site_dir = "#{@temp_dir}/site"
+
     download
     build
     publish
@@ -20,7 +23,6 @@ class Handler
 
   def download
     Dir.chdir(@temp_dir)
-    @code_dir  = "#{@temp_dir}/code"
     %x{
       git clone #{@repo_url} #{@code_dir} &&
       cd #{@code_dir} &&
@@ -32,17 +34,15 @@ class Handler
 
   def build
     Dir.chdir(@code_dir)
-    @site_dir = "#{@temp_dir}/site"
     %x{
-      bundle install &&
       bundle exec jekyll build -s #{@code_dir} -d #{@site_dir} &&
       cd #{@site_dir}
     }
   end
 
   def publish
-    puts "Publishing!"
-    # Dir.chdir(@site_dir)
-    p Dir.entries(@site_dir)
+    %x{
+      bundle exec s3_website push --site=#{@site_dir}
+    }
   end
 end
