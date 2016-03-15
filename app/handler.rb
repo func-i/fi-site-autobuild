@@ -22,7 +22,6 @@ class Handler
   private
 
   def download
-    Dir.chdir(@temp_dir)
     %x{
       git clone #{@repo_url} #{@code_dir} &&
       cd #{@code_dir} &&
@@ -33,17 +32,15 @@ class Handler
   end
 
   def build
-    puts APP_ROOT.to_path
     %x{
       bundle exec jekyll build -s #{@code_dir} -d #{@site_dir} &&
-      cd #{APP_ROOT.to_path}
+      cd #{@site_dir}
     }
   end
 
   def publish
-    puts Dir.pwd
-    p Dir.entries(Dir.pwd)
     %x{
+      cd #{APP_ROOT.to_path} &&
       bundle exec s3_website push --site=#{@site_dir}
     }
   end
