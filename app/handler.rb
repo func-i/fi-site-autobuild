@@ -25,7 +25,8 @@ class Handler
       git clone #{@repo_url} #{@code_dir} &&
       cd #{@code_dir} &&
       git checkout #{@repo_branch} &&
-      git pull origin #{@repo_branch}
+      git pull origin #{@repo_branch} &&
+      cd -
     }
   end
 
