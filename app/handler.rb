@@ -2,7 +2,7 @@ class Handler
   def initialize(data)
     @repo_owner  = data.repository.owner.name
     @repo_name   = data.repository.name;
-    @repo_url    = "https://github.com/func-i/#{repo_name}.git"
+    @repo_url    = "https://github.com/func-i/#{@repo_name}.git"
     @repo_branch = data.ref.replace("refs/heads/", "");
   end
 
