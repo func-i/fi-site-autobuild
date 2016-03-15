@@ -39,6 +39,7 @@ class Handler
   end
 
   def publish
+    p Dir.entries(APP_ROOT.to_path)
     %x{
       cd #{APP_ROOT.to_path} &&
       bundle exec s3_website push --site=#{@site_dir}
