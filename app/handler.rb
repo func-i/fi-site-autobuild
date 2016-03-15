@@ -25,8 +25,7 @@ class Handler
     puts Dir.pwd
 
     %x{
-      git clone #{@repo_url} #{code_dir}
-      &&
+      git clone #{@repo_url} #{code_dir} &&
       ls
     }
   end
