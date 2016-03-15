@@ -7,7 +7,6 @@ before do
 end
 
 post '/github_webhooks' do
-  p @payload
   Handler.new(@payload).handle
   status 204
   body ''

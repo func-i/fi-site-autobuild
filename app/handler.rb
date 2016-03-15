@@ -10,23 +10,32 @@ class Handler
     # end early if not FI account
     return unless @repo_owner === "func-i"
 
+    @temp_dir  = "/tmp"
+    download
     build
     publish
   end
 
   private
 
-  def build
-    temp_dir  = "/tmp"
-    code_dir  = "#{temp_dir}/code"
-    @site_dir = "#{temp_dir}/site"
-
+  def download
+    @code_dir  = "#{@temp_dir}/code"
     Dir.chdir(temp_dir)
-    puts Dir.pwd
-
     %x{
       git clone #{@repo_url} #{code_dir} &&
-      ls
+      git checkout #{@repo_branch} &&
+      git pull origin #{repo_branch}
+    }
+  end
+
+  def build
+    @site_dir = "#{temp_dir}/site"
+
+    put "Building"
+    puts @site_dir
+
+    %x{
+
     }
   end
 
