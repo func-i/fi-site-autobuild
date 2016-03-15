@@ -32,8 +32,7 @@ class Handler
 
   def build
     @site_dir = "#{@temp_dir}/site"
-    puts Dir.pwd
-    p Dir.entries(Dir.pwd)
+    Dir.chdir(@site_dir)
     %x{
       bundle install &&
       bundle exec jekyll build -s #{@code_dir} -d #{@site_dir}
@@ -43,6 +42,6 @@ class Handler
   def publish
     puts "Publishing!"
     # Dir.chdir(@site_dir)
-    # p Dir.entries(@site_dir)
+    p Dir.entries(@site_dir)
   end
 end
