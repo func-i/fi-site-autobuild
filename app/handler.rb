@@ -40,7 +40,8 @@ class Handler
   end
 
   def publish
-
+    puts Dir.pwd
+    p Dir.entries(Dir.pwd)
     %x{
       bundle exec s3_website push --site=#{@site_dir}
     }
