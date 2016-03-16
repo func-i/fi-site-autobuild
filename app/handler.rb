@@ -37,9 +37,11 @@ class Handler
   end
 
   def build
+    config_files = "_config.yml,_config-staging.yml"
     %x{
-      bundle exec jekyll build -s #{@code_dir} -d #{@site_dir} &&
-      cd #{@site_dir}
+      cd #{@code_dir} &&
+      bundle exec jekyll build -d #{@site_dir} --config #{config_files} &&
+      cd -
     }
   end
 
