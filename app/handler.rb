@@ -7,8 +7,11 @@ class Handler
   end
 
   def handle
-    # end early if not FI account
+    # handle only FI's GitHub account: func-i
     return unless @repo_owner === "func-i"
+
+    # handle only push to master or staging branch
+    return unless ["master", "staging"].include? @repo_branch
 
     @temp_dir = "/tmp"
     @code_dir = "#{@temp_dir}/code"
