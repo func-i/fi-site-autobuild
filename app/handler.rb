@@ -42,7 +42,13 @@ class Handler
   end
 
   def build
-    config_files = "_config.yml,_config-staging.yml"
+    config_files =
+      if @repo_branch === STAGING
+        "_config.yml,_config-staging.yml"
+      else
+        "_config.yml,_config-production.yml"
+      end
+
     %x{
       cd #{CODE_DIR} &&
       bundle exec jekyll build -d #{SITE_DIR} --config #{config_files} &&
