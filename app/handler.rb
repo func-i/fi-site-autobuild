@@ -17,9 +17,10 @@ class Handler
   SITE_DIR = "#{TEMP_DIR}/site"
 
   def initialize(data)
-    @repo_owner  = data.repository.owner.name
-    @repo_name   = data.repository.name;
-    @repo_branch = data.ref.sub("refs/heads/", "");
+    @repo_owner   = data.repository.owner.name
+    @repo_name    = data.repository.name
+    @repo_branch  = data.ref.sub("refs/heads/", "")
+    @committer    = data.head_commit.committer
   end
 
   def handle
@@ -47,6 +48,8 @@ class Handler
       fi &&
       cd #{CODE_DIR} &&
       git checkout #{@repo_branch} &&
+      git config user.email "#{@committer.email}" &&
+      git config user.name "#{@committer.name}" &&
       git pull origin #{@repo_branch} &&
       cd -
     }
