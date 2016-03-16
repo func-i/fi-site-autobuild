@@ -43,13 +43,15 @@ class Handler
 
   def download
     %x{
-      if [ ! -d #{CODE_DIR} ]; then
-        git clone #{GITHUB_URL} #{CODE_DIR}
+      if [ -d #{CODE_DIR} ]; then
+        cd #{CODE_DIR}
+      else
+        git clone #{GITHUB_URL} #{CODE_DIR} &&
+        cd #{CODE_DIR} &&
+        git config user.email "#{@committer.email}" &&
+        git config user.name "#{@committer.name}"
       fi &&
-      cd #{CODE_DIR} &&
       git checkout #{@repo_branch} &&
-      git config user.email "#{@committer.email}" &&
-      git config user.name "#{@committer.name}" &&
       git pull origin #{@repo_branch} &&
       cd -
     }
