@@ -1,7 +1,7 @@
 Auto-Build Server for FI's Website
 =============
 
-Pushing to the website's [source repo](https://github.com/func-i/fi-site-source) will send a webhook to this server hosted on Heroku, which will build the site and deploy it to either the staging (`fi-website-staging`) or the production (`fi-website`) bucket on Amazon S3.
+Pushing to the website's [source repo](https://github.com/func-i/fi-site-source) will send a webhook to this server hosted on Heroku, which will build the site and deploy it to either the staging (`fi-website-staging`) or the production (`functionalimperative.com`) bucket on Amazon S3.
 
 ## Development
 
