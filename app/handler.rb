@@ -16,7 +16,7 @@ class Handler
     @repo_owner   = data.repository.owner.name
     @repo_name    = data.repository.name
     @repo_branch  = data.ref.sub("refs/heads/", "")
-    @committer    = data.head_commit.committer
+    @pusher       = data.pusher
   end
 
   def handle
@@ -44,8 +44,8 @@ class Handler
       else
         git clone #{GITHUB_URL} #{CODE_DIR} &&
         cd #{CODE_DIR} &&
-        git config user.email "#{@committer.email}" &&
-        git config user.name "#{@committer.name}"
+        git config user.email "#{@pusher.email}" &&
+        git config user.name "#{@pusher.name}"
       fi &&
       git checkout #{@repo_branch} &&
       git pull origin #{@repo_branch} &&
