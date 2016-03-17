@@ -2,14 +2,10 @@ class Handler
 
   # GitHub account and branches
   GITHUB_ACC    = "func-i"
-  GITHUB_REPO   = "Funci_from_OS"
+  GITHUB_REPO   = "fi-site-source"
   GITHUB_URL    = "https://github.com/#{GITHUB_ACC}/#{GITHUB_REPO}.git"
   GH_STAGING    = "staging"
   GH_PRODUCTION = "master"
-
-  # Amazon S3 bucket for staging, Heroku env var for the bucket
-  S3_STAGING = "fi-website-staging"
-  BUCKET_ENV = "AWS_S3_BUCKET"
 
   # temp folders on Heroku
   TEMP_DIR = "/tmp"
