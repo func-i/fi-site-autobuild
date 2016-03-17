@@ -11,7 +11,12 @@ gem 'puma'
 gem 'tux'
 
 
-### gems used by the FI website's source ###
+##############################################
+#
+# Gems from the website's source repo
+# https://github.com/func-i/Funci_from_OS
+#
+##############################################
 
 # jekyll 3 and required gems
 gem 'jekyll', '~> 3.1.2'
