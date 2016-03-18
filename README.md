@@ -21,6 +21,12 @@ Pushing to the website's [source repo](https://github.com/func-i/fi-site-source)
 
 ## Notes
 
-* **IMPORTANT**: the Gemfile of this repo must contain all the gems in the website source repo's Gemfile. *If you update the source repo's Gemfile on `staging` or `master`, apply the same changes to the Gemfile of this repo, and push to Heroku here before you push the source repo changes.* This is because you can't run `bundle install` from an app inside a Heroku dyno - install the gems needed for `jekyll build` locally so that Heroku makes them available in the dyno
+* **Important**: the Gemfile of this repo must contain all the gems in the website source repo's Gemfile.
+    - *If you update the source repo's Gemfile on `staging` or `master`, apply the same changes to the Gemfile of this repo, and push to Heroku here before you push the source repo changes.*
+    - This is because you can't run `bundle install` from an app inside a Heroku dyno. When you `git push heroku` locally, Heroku installs the gems available to the dyno based on the Gemfile in this repo
+
+* The /POST request sent by the GitHub webhook to the Heroku server often times out, as Heroku has a fixed 30-second limit for request timeout, and it takes a while to download + build + deploy. *The auto-build server works fine despite this issue.* Ignore the following error displays:
+    - `heroku logs --tail` often shows `heroku[router]: at=error code=H12 desc="Request timeout" ...`
+    - In the fi-site-source repo, `Settings` -> `Webhooks & Services`, the webhook `http://fi-website-autobuild.herokuapp.com/github_webhooks` often shows an error status
 
 * pom.xml is required to add the Java buildpack on Heroku. Java is required by the s3_website gem
