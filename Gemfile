@@ -3,6 +3,7 @@ ruby "2.1.8"
 
 gem 'rake'
 gem 'activesupport'
+gem 'resque', '1.25.2'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
