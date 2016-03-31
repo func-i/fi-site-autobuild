@@ -53,7 +53,8 @@ class BuildQueue
   def self.publish(s3_config)
     %x{
       cd #{APP_ROOT.to_path} &&
-      bundle exec s3_website push --site=#{SITE_DIR} --config-dir #{s3_config}
+      bundle exec s3_website push --site=#{SITE_DIR} --config-dir #{s3_config} &&
+      cd -
     }
   end
 end
