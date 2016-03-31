@@ -3,6 +3,7 @@ require 'bundler/setup'
 
 require 'active_support/all'
 require 'ostruct'
+require 'resque'
 
 require 'sinatra'
 
