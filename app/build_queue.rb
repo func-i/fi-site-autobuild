@@ -15,6 +15,8 @@ class BuildQueue
   end
 
   def self.download(github_url, pusher_email, pusher_name, repo_branch)
+    puts 'starting download'
+
     %x{
       if [ -d #{CODE_DIR} ]; then
         cd #{CODE_DIR}
@@ -31,6 +33,8 @@ class BuildQueue
   end
 
   def self.set_env(repo_branch)
+    puts 'starting set_env'
+
     if repo_branch === GH_STAGING
       jekyll_config = "_config.yml,_config-staging.yml"
       s3_config = "s3_config_staging"
@@ -43,6 +47,8 @@ class BuildQueue
   end
 
   def self.build(jekyll_config)
+    puts 'starting build'
+
     %x{
       cd #{CODE_DIR} &&
       bundle exec jekyll build -d #{SITE_DIR} --config #{jekyll_config} &&
@@ -51,10 +57,14 @@ class BuildQueue
   end
 
   def self.publish(s3_config)
+    puts 'starting publish'
+
     %x{
       cd #{APP_ROOT.to_path} &&
       bundle exec s3_website push --site=#{SITE_DIR} --config-dir #{s3_config} &&
       cd -
     }
+
+    puts 'ending all'
   end
 end
