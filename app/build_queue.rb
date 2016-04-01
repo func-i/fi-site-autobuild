@@ -38,7 +38,7 @@ class BuildQueue
   def self.set_env(repo_branch)
     puts 'starting set_env'
 
-    if repo_branch === GH_STAGING
+    if repo_branch == GH_STAGING
       jekyll_config = "_config.yml,_config-staging.yml"
       s3_config = "s3_config_staging"
     else # repo_branch === GH_PRODUCTION
