@@ -15,5 +15,6 @@ configure do
   set :server, :puma
 end
 
+require APP_ROOT.join('app', 'build_queue')
 require APP_ROOT.join('app', 'handler')
 require APP_ROOT.join('app', 'router')
