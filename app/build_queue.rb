@@ -10,6 +10,9 @@ class BuildQueue
   def self.perform(github_url, pusher_email, pusher_name, repo_branch)
     download(github_url, pusher_email, pusher_name, repo_branch)
     jekyll_config, s3_config = set_env(repo_branch)
+    puts 'before build'
+    puts jekyll_config
+    puts s3_config
     build(jekyll_config)
     publish(s3_config)
   end
@@ -43,6 +46,7 @@ class BuildQueue
       s3_config = "s3_config_production"
     end
 
+    puts 'finishing set_env'
     return jekyll_config, s3_config
   end
 
