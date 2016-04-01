@@ -1,12 +1,5 @@
 class Handler
 
-  # GitHub account and branches
-  GITHUB_ACC    = "func-i"
-  GITHUB_REPO   = "fi-site-source"
-  GITHUB_URL    = "https://github.com/#{GITHUB_ACC}/#{GITHUB_REPO}.git"
-  GH_STAGING    = "staging"
-  GH_PRODUCTION = "master"
-
   def initialize(data)
     @repo_owner   = data.repository.owner.name
     @repo_name    = data.repository.name

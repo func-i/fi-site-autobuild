@@ -1,10 +1,5 @@
 class BuildQueue
 
-  # temp folders on Heroku
-  TEMP_DIR = "/tmp"
-  CODE_DIR = "#{TEMP_DIR}/code"
-  SITE_DIR = "#{TEMP_DIR}/site"
-
   @queue = :auto_build
 
   def self.perform(github_url, pusher_email, pusher_name, repo_branch)
