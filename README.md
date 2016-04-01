@@ -27,6 +27,6 @@ Pushing to the website's [source repo](https://github.com/func-i/fi-site-source)
 
 * Auto-build jobs are queued by Resque, set to poll the queue every second.
 
-The reason for queuing: /POST request sent by the GitHub webhook to the Heroku server often times out, as Heroku has a fixed 30-second limit for request timeout, and it takes a while to download + build + deploy. Without queuing, most requests return errors to the GitHub webhook.
+  The reason for queuing: /POST request sent by the GitHub webhook to the Heroku server often times out, as Heroku has a fixed 30-second limit for request timeout, and it takes a while to download + build + deploy. Without queuing, most requests return errors to the GitHub webhook.
 
 * pom.xml is required to add the Java buildpack on Heroku. Java is required by the s3_website gem
