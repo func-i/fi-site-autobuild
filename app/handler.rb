@@ -25,7 +25,7 @@ class Handler
     return unless [GH_STAGING, GH_PRODUCTION].include? @repo_branch
 
     Resque.enqueue(
-      BuidQueue,
+      BuildQueue,
       GITHUB_URL,
       @pusher.email,
       @pusher.name,
