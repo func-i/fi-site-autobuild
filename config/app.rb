@@ -22,6 +22,7 @@ GITHUB_REPO   = "fi-site-source"
 GITHUB_URL    = "https://github.com/#{GITHUB_ACC}/#{GITHUB_REPO}.git"
 GH_STAGING    = "staging"
 GH_PRODUCTION = "master"
+GH_DEMO       = "demo"
 
 # temp folders on Heroku
 TEMP_DIR = "/tmp"

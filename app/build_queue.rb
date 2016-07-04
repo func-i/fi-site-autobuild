@@ -29,6 +29,9 @@ class BuildQueue
     if repo_branch == GH_STAGING
       jekyll_config = "_config.yml,_config-staging.yml"
       s3_config = "s3_config_staging"
+    elsif repo_branch == GH_DEMO
+      jekyll_config = "_config.yml,_config-demo.yml"
+      s3_config = "s3_config_demo"
     else # repo_branch === GH_PRODUCTION
       jekyll_config = "_config.yml,_config-production.yml"
       s3_config = "s3_config_production"

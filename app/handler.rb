@@ -14,8 +14,8 @@ class Handler
     # handle only the GitHub repo for FI's website
     return unless @repo_name === GITHUB_REPO
 
-    # handle only push to staging or production branch
-    return unless [GH_STAGING, GH_PRODUCTION].include? @repo_branch
+    # handle only push to staging, production or demo branch
+    return unless [GH_STAGING, GH_PRODUCTION, GH_DEMO].include? @repo_branch
 
     Resque.enqueue(
       BuildQueue,
