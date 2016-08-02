@@ -26,7 +26,7 @@ s3_bucket: fi-website-demo
 
 ignore_on_server: 
   - "eso/*"
-  - "enroute/*"
+  - "enRoute/*"
 
 # exclude_from_upload:
 #   - those_folders_of_stuff
