@@ -15,7 +15,7 @@ Pushing to the website's [source repo](https://github.com/func-i/fi-site-source)
 
 ### S3
 
-* **S3 bucket**: Open `/s3_config_staging/s3_website.yml` for staging, `/s3_config_production/s3_website.yml` for production, or `/s3_config_demo` for the demo site. Set the `s3_bucket` field
+* **S3 bucket**: Open `/s3_config_staging/s3_website.yml` for staging, `/s3_config_production/s3_website.yml` for production, or `/s3_config_demo/s3_website.yml` for the demo site. Set the `s3_bucket` field
 * **AWS access keys**: Open the app from the [Heroku Dashboard](https://dashboard.heroku.com/apps). Click on **Settings**. In the **Config Variables** section, set the fields: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
 
 
