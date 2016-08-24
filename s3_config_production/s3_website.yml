@@ -14,6 +14,7 @@ s3_bucket: www.functionalimperative.com
 max_age:
   "assets/fonts/*": 604800
   "assets/images/*": 604800
+  "assets/javascripts/lib/*": 604800
   "assets/*": 300
   "*": 300
 
