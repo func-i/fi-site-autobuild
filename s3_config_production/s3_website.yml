@@ -51,10 +51,13 @@ ignore_on_server:
 
 # concurrency_level: 5
 
-# redirects:
-#   index.php: /
-#   about.php: about.html
-#   music-files/promo.mp4: http://www.youtube.com/watch?v=dQw4w9WgXcQ
+redirects:
+  blog/posts/better_bundler_local_gem_support.html: custom-software-development-company-blog/better-bundler.html
+  blog/posts/ruby_schemaverse.html: custom-software-development-company-blog/ruby-schemaverse.html
+  about/partners.html: about/our_work.html
+  about/join.html: contact-custom-software-solutions.html
+  about/join/dpamba.html: contact-custom-software-solutions.html
+  work/votecompass: about/our_work.html
 
 # routing_rules:
 #   - condition:
