@@ -58,6 +58,10 @@ redirects:
   about/join.html: contact-custom-software-solutions.html
   about/join/dpamba.html: contact-custom-software-solutions.html
   work/votecompass: about/our_work.html
+  about-custom-software-solutions-development: about-custom-software-solutions-development.html
+  contact-custom-software-solutions: contact-custom-software-solutions.html
+  custom-software-solutions-services: custom-software-solutions-services.html
+  about/custom-software-development-method: about/custom-software-development-method.html
 
 # routing_rules:
 #   - condition:
