@@ -58,7 +58,7 @@ ignore_on_server:
 
 routing_rules:
   - condition:
-      key_prefix_equals: /:year/:month/:day/
+      key_prefix_equals: custom-software-development-company-blog/
     redirect:
-      replace_key_prefix_with: custom-software-development-company-blog/
+      replace_key_with: custom-software-development-company-blog.html
       http_redirect_code: 301
