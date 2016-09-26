@@ -62,11 +62,10 @@ redirects:
   contact-custom-software-solutions: contact-custom-software-solutions.html
   custom-software-solutions-services: custom-software-solutions-services.html
   about/custom-software-development-method: about/custom-software-development-method.html
-
+# 
 # routing_rules:
 #   - condition:
-#       key_prefix_equals: blog/some_path
+#       key_prefix_equals: /:year/:month/:day/
 #     redirect:
-#       host_name: blog.example.com
-#       replace_key_prefix_with: some_new_path/
+#       replace_key_prefix_with: custom-software-development-company-blog/
 #       http_redirect_code: 301
