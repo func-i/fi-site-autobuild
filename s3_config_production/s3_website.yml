@@ -9,7 +9,7 @@ s3_bucket: www.functionalimperative.com
 # site: path-to-your-website
 
 # index_document: index.html
-# error_document: error.html
+error_document: 404.html
 
 max_age:
   "assets/fonts/*": 604800
@@ -52,8 +52,8 @@ ignore_on_server:
 # concurrency_level: 5
 
 redirects:
-  blog/posts/better_bundler_local_gem_support.html: custom-software-development-company-blog/better-bundler.html
-  blog/posts/ruby_schemaverse.html: custom-software-development-company-blog/ruby-schemaverse.html
+  blog/posts/better_bundler_local_gem_support.html: 2012/09/01/better-bundler.html
+  blog/posts/ruby_schemaverse.html: 2012/09/16/ruby-schemaverse.html
   about/partners.html: about/our_work.html
   about/join.html: contact-custom-software-solutions.html
   about/join/dpamba.html: contact-custom-software-solutions.html
@@ -62,10 +62,11 @@ redirects:
   contact-custom-software-solutions: contact-custom-software-solutions.html
   custom-software-solutions-services: custom-software-solutions-services.html
   about/custom-software-development-method: about/custom-software-development-method.html
-# 
-# routing_rules:
-#   - condition:
-#       key_prefix_equals: /:year/:month/:day/
-#     redirect:
-#       replace_key_prefix_with: custom-software-development-company-blog/
-#       http_redirect_code: 301
+
+routing_rules:
+  - condition:
+      key_prefix_equals: custom-software-development-company-blog/
+      http_error_code_returned_equals: 404
+    redirect:
+      replace_key_with: custom-software-development-company-blog/
+      http_redirect_code: 301
