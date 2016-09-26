@@ -58,7 +58,8 @@ ignore_on_server:
 
 routing_rules:
   - condition:
-      key_prefix_equals: custom-software-development-company-blog/
+      key_prefix_equals: /custom-software-development-company-blog
+      http_error_code_returned_equals: 404
     redirect:
-      replace_key_with: custom-software-development-company-blog.html
+      replace_key_with: /custom-software-development-company-blog/
       http_redirect_code: 301
